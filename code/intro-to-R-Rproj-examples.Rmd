@@ -1,0 +1,183 @@
+---
+title: "Intro to R and RStudio"
+output:
+  html_document:
+    df_print: paged
+---
+
+## Background
+
+R is a freely available language and environment for statistical computing and graphics which provides a wide variety of statistical and graphical techniques.
+
+Free Resources
+
+  - R for Data Science (https://r4ds.had.co.nz/index.html)
+  - The Comprehensive R Archive Network (CRAN) (https://cloud.r-project.org)
+
+## Basic R Syntax and Usage
+
+---
+
+### R as a calculator
+```{r calculator}
+1 + 100      # simple addition
+1 +          # incomplete command. Press Control + C to cancel a command
+3 + 5 * 2    # order of operations
+3^2          # square 
+```
+
+
+### Mathematical functions
+```{r math-functions}
+sin(30)    # trigonometry functions
+log(1)     # natural log
+log10(10)  # log base-10
+sqrt(4)    # square root
+```
+
+
+### Comparing things
+```{r comparisons}
+1 == 1    # equality (two equals sign)
+1 != 2    # inequality
+1 < 2     # less than
+1 > 2     # greater than
+1 >= 2    # greater than or equal to
+```
+
+### Vectors
+```{r vectors}
+1:5          # vector containing numbers 1 to 5
+2^(1:5)      # vector containing 2 to the power of (1 to 5)
+x <- 1:5     # assigning vector to a variable
+2^x          # calculations on variables
+```
+
+## Variables
+
+---
+
+Variable names can contain letters, numbers, underscores and periods but no spaces. They must start with a letter or a period followed by a letter (they cannot start with a number nor an underscore). Variables beginning with a period are hidden variables. Different people use different conventions for long variable names, these include
+
+- periods.between.words (avoid this as some functions use periods as well)
+- underscores_between_words
+- camelCaseToSeparateWords
+
+What you use is up to you, but be **consistent.**
+
+### Assigning values to variables
+```
+x <- 4     # assigns value to the variable x
+x          # view output of x
+```
+output:
+```
+[1] 4
+```
+```
+log(x)     # natural log of variable x
+```
+output:
+```
+[1] 1.386294
+```
+### Reassigning values to variables
+```
+x <- 100   # reassign value to x
+x <- x+1
+x
+```
+output:
+```
+[1] 101
+```
+```
+y <- x^2  
+```
+output:
+```
+[1] 10201
+```
+
+### Variables can also store vectors, dataframes, and matrices
+```
+x <- 1:5     # assigning vector to a variable
+2^x          # calculations on variables
+```
+output:
+```
+[1] 2 4 8 16 32
+```
+
+## Installing packages
+
+---
+
+In addition to base packages included with R, you can install additional packages that add novel functionalities to R (e.g., DESeq2 for differential expression analysis)
+
+### Installing packages in CRAN
+```{r packages, eval=FALSE}
+install.packages()                # list all install packages 
+install.packages("packagename")   # installing packagename
+update.packages()                 # update all packages
+update.packages("packagename")    # update packagename
+library(packagename)              # make packagename available for use
+```
+### Optional: Installing packages in development through GitHub
+```{r github-packages, eval=FALSE}
+install.packages("devtools")
+library(devtools)
+install_github("Author/Packagename")
+```
+
+## Environment management
+
+---
+
+Managing environment in R
+```{r environment-management}
+ls()                # list all variables
+rm(x)               # remove variable x
+rm(list = ls())     # remove all variables
+sessionInfo()       # print R version, OS, and loaded packages
+```
+Managing environment in RStudio (show demo)
+
+## Example Exercise
+
+---
+
+What will the value of each variable be after each statement?
+```{r example1, eval=FALSE}
+mass <- 50
+mass <- mass * 2
+mass
+```
+output:
+```
+[1]
+```
+```{r}
+age <- 103
+age <- age -50
+age
+```
+output:
+```
+[1]
+```
+
+Write a code comparing mass to age
+```{r example2, eval=FALSE}
+age ? mass    # is age not equal to mass?
+mass ? age     # is mass greater than age?
+```
+
+
+Clean up the environment by deleting the mass and age variables
+```{r example3, eval=FALSE}
+rm(?) # removes all variables
+rm(?) # removes age variable
+rm(?) # removes mass variable
+rm(?) # removes mass and age variable
+```
