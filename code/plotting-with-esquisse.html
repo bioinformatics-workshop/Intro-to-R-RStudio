@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>esquisse&colon; Exploring and visualizing data interactively</title>
+        <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+/* From extension ms-toolsai.jupyter */
+/* These classnames are inherited from bootstrap, but are present in most notebook renderers */
+
+.alert {
+    width: auto;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+.alert > *:last-child {
+    margin-bottom: 0;
+}
+#preview > .alert:last-child {
+    /* Prevent this being set to zero by the default notebook stylesheet */
+    padding-bottom: 1em;
+}
+
+.alert-success {
+    /* Note there is no suitable color available, so we just copy "info" */
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-info {
+    background-color: var(--theme-info-background);
+    color: var(--theme-info-foreground);
+}
+.alert-warning {
+    background-color: var(--theme-warning-background);
+    color: var(--theme-warning-foreground);
+}
+.alert-danger {
+    background-color: var(--theme-error-background);
+    color: var(--theme-error-foreground);
+}
+
+</style>
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+        
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="esquisse-exploring-and-visualizing-data-interactively">esquisse: Exploring and visualizing data interactively</h1>
+<figure>
+<img src="file:////Users/bhle/Dropbox/MacPro/Bioinfo/tutorials/training/Intro-to-R-RStudio/images/esquisse-app.jpg" alt="esquisse app" width="500" />
+</figure>
+<h2 id="what-is-esquisse">What is esquisse?</h2>
+<p>A 'shiny' gadget to create 'ggplot2' figures interactively with drag-and-drop to map your variables to different aesthetics. You can quickly visualize your data accordingly to their type, export in various formats, and retrieve the code to reproduce the plot.</p>
+<p>The purpose of this add-in is to let you explore your data quickly to extract the information they hold. You can create visualization with {ggplot2}, filter data with {dplyr} and retrieve generated code.</p>
+<h2 id="resources">Resources</h2>
+<hr>
+<p>Online documentation: <a href="https://dreamrs.github.io/esquisse/index.html">https://dreamrs.github.io/esquisse/index.html</a><br>
+Getting started: <a href="https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html">https://cran.r-project.org/web/packages/esquisse/vignettes/get-started.html</a></p>
+<h2 id="installation">Installation</h2>
+<hr>
+<p>Install from CRAN with:</p>
+<pre><code>install.packages('esquisse')
+</code></pre>
+<blockquote>
+<p>Note: This could take a few minutes to complete</p>
+</blockquote>
+<h2 id="running-esquisse">Running esquisse</h2>
+<hr>
+<p>After the installation, <code>esquisse</code> can be launched using the RStudio addin module or with:</p>
+<pre><code>esquisse::esquisser()
+</code></pre>
+
+        
+        
+    </body>
+    </html>

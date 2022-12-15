@@ -1,6 +1,8 @@
 ---
 title: "Intro to data visualization with ggplot2"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 In this session, we will work with data visualization using ggplot2. Although there are many systems in R for generating graphs, ggplot2 is the most versatile and elegant. We will use examples from the [R Graphics Cookbook](https://r-graphics.org).
@@ -13,6 +15,7 @@ In this session, we will work with data visualization using ggplot2. Although th
 - [Plotting Anything with ggplot2](https://youtu.be/h29g21z0a68) by Thomas Lin Pedersen (webinar)
 - [R4DS-Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) by Hadley Wickham & Garrett Grolemund
 - [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/) is a more advanced and in-depth assessment of the theoretical underpinnings of ggplot2
+- [Colorbrewer](https://colorbrewer2.org/) provide good recommendation for color selection
 
 ## Load required libraries
 
@@ -121,33 +124,33 @@ ggplot(data=dat1, aes(x=time, y=total_bill, fill=sex)) +
 
 ```{r}
 set.seed(1234)
-dat <- data.frame(cond = factor(rep(c("A","B"), each=200)), 
+dat2 <- data.frame(cond = factor(rep(c("A","B"), each=200)), 
                    rating = c(rnorm(200),rnorm(200, mean=.8)))
 # View first few rows
-head(dat)
+head(dat2)
 ```
 
 ```{r}
 ## Basic histogram from the vector "rating". Each bin is .5 wide.
 ## These both result in the same output:
-ggplot(dat, aes(x=rating)) + geom_histogram(binwidth = 0.5)
+ggplot(dat2, aes(x=rating)) + geom_histogram(binwidth = 0.5)
 # qplot(dat$rating, binwidth=.5)
 ```
 
 ```{r}
 # Draw with black outline, white fill
-ggplot(dat, aes(x=rating)) +
+ggplot(dat2, aes(x=rating)) +
     geom_histogram(binwidth=.5, colour="white", fill="black")
 ```
 
 ```{r}
 # Density curve
-ggplot(dat, aes(x=rating)) + geom_density()
+ggplot(dat2, aes(x=rating)) + geom_density()
 ```
 
 ```{r}
 # Histogram overlaid with kernel density curve
-ggplot(dat, aes(x=rating)) + 
+ggplot(dat2, aes(x=rating)) + 
     geom_histogram(aes(y=..density..),  # Histogram with density instead of count on y-axis
                    binwidth=.5,
                    colour="black", fill="white") +
@@ -158,56 +161,55 @@ ggplot(dat, aes(x=rating)) +
 
 ```{r}
 # Overlaid histograms
-ggplot(dat, aes(x=rating, fill=cond)) +
+ggplot(dat2, aes(x=rating, fill=cond)) +
     geom_histogram(binwidth=.5, alpha=.5, position="identity")
 ```
 
 ```{r}
 # Interleaved histograms
-ggplot(dat, aes(x=rating, fill=cond)) +
+ggplot(dat2, aes(x=rating, fill=cond)) +
     geom_histogram(binwidth=.5, position="dodge")
 ```
 
 ```{r}
 # Density plots
-ggplot(dat, aes(x=rating, colour=cond)) + geom_density()
+ggplot(dat2, aes(x=rating, colour=cond)) + geom_density()
 ```
 
 ```{r}
 # Density plots with semi-transparent fill
-ggplot(dat, aes(x=rating, fill=cond)) + geom_density(alpha=.3)
+ggplot(dat2, aes(x=rating, fill=cond)) + geom_density(alpha=.3)
 
+# stat_ecdf : empirical cumulative distribution function
+ggplot(dat2, aes(rating)) + stat_ecdf(geom = "point")
+ggplot(dat2, aes(rating)) + stat_ecdf(geom = "step")
+ggplot(dat2, aes(rating)) + stat_ecdf(geom = "smooth")
 
-ggplot(dat, aes(rating)) + stat_ecdf(geom = "point")
-ggplot(dat, aes(rating)) + stat_ecdf(geom = "step")
-ggplot(dat, aes(rating)) + stat_ecdf(geom = "smooth")
-
-
-
-
+# Multiple ECDFs based on condition
+ggplot(dat2, aes(rating, color = cond)) + stat_ecdf(geom = "point")
 ```
 
 ### Box plots
 
 ```{r}
 # A basic box plot
-ggplot(dat, aes(x=cond, y=rating)) + geom_boxplot()
+ggplot(dat2, aes(x=cond, y=rating)) + geom_boxplot()
 ```
 
 ```{r}
 # A basic box with the conditions colored
-ggplot(dat, aes(x=cond, y=rating, fill=cond)) + geom_boxplot()
+ggplot(dat2, aes(x=cond, y=rating, fill=cond)) + geom_boxplot()
 ```
 
 ```{r}
 # The above adds a redundant legend. With the legend removed:
-ggplot(dat, aes(x=cond, y=rating, fill=cond)) + geom_boxplot() +
+ggplot(dat2, aes(x=cond, y=rating, fill=cond)) + geom_boxplot() +
     guides(fill="none")
 ```
 
 ```{r}
 # With flipped axes
-ggplot(dat, aes(x=cond, y=rating, fill=cond)) + geom_boxplot() + 
+ggplot(dat2, aes(x=cond, y=rating, fill=cond)) + geom_boxplot() + 
     guides(fill="none") + coord_flip()
 ```
 
@@ -216,34 +218,34 @@ ggplot(dat, aes(x=cond, y=rating, fill=cond)) + geom_boxplot() +
 ```{r}
 set.seed(955)
 # Make some noisily increasing data
-dat <- data.frame(cond = rep(c("A", "B"), each=10),
+dat3 <- data.frame(cond = rep(c("A", "B"), each=10),
                   xvar = 1:20 + rnorm(20,sd=3),
                   yvar = 1:20 + rnorm(20,sd=3))
-head(dat)
+head(dat3)
 
 ```
 
 ```{r}
-ggplot(dat, aes(x=xvar, y=yvar)) +
+ggplot(dat3, aes(x=xvar, y=yvar)) +
     geom_point(shape=5)      # Use hollow circles
 ```
 
 ```{r}
-ggplot(dat, aes(x=xvar, y=yvar)) +
+ggplot(dat3, aes(x=xvar, y=yvar)) +
     geom_point(shape=1) +    # Use hollow circles
     geom_smooth(method=lm)   # Add linear regression line 
                              #  (by default includes 95% confidence region)
 ```
 
 ```{r}
-ggplot(dat, aes(x=xvar, y=yvar)) +
+ggplot(dat3, aes(x=xvar, y=yvar)) +
     geom_point(shape=1) +    # Use hollow circles
     geom_smooth(method=lm,   # Add linear regression line
                 se=FALSE)    # Don't add shaded confidence region
 ```
 
 ```{r}
-ggplot(dat, aes(x=xvar, y=yvar)) +
+ggplot(dat3, aes(x=xvar, y=yvar)) +
     geom_point(shape=1) +    # Use hollow circles
     geom_smooth()            # Add a loess smoothed fit curve with confidence region
 #> `geom_smooth()` using method = 'loess'
