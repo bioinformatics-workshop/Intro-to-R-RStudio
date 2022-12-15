@@ -22,7 +22,7 @@ The latest version of RStudio requires a 64-bit operating system. If you have a 
 
 1. Follow this link to the RStudio Desktop download page [link](https://posit.co/download/rstudio-desktop/)
 2. Scroll down to the section "All Installers and Tarballs"
-3. Select the download for you specific system
+3. Select the download for your specific system
    1. [Windows 10/11](https://download1.rstudio.org/desktop/windows/RStudio-2022.07.2-576.exe)
    2. [macOS 10.15+](https://download1.rstudio.org/desktop/macos/RStudio-2022.07.2-576.dmg)
 

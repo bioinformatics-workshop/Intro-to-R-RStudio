@@ -11,7 +11,7 @@ This workshop will provide an introduction to R, RStudio and data visualization 
 - R and RStudio interface  
 - R Syntax  
 - Visualization using ggplot2  
-- Visualization with esquisseR  
+- Visualization with esquisse  
 
 # General Information  
 **Date:** December 15, 2022  
@@ -19,13 +19,18 @@ This workshop will provide an introduction to R, RStudio and data visualization 
 **Location:** 104 Campbell Hall   
 **Format:** In-Person
 
-**Update:** Location changed to Genomics Auditorium 1102A 
+>**Update:** Location changed to Genomics Auditorium 1102A 
 
 # Registration
 Register for the workshop at: https://bit.ly/3h8bMtK
 
 # Software installation
 For this workshop, you will need to install R and RStudio Desktop. See the installation instructions here: [Installing R](code/installing-R.md)
+
+# Workshop Resources
+All materials for the workshop are available at the GitHub Repository:
+https://github.com/bioinformatics-workshop/
+
 
 # Requirements
 Attendees should have a laptop (Mac or PC) to follow along in the workshop. If you don’t have a laptop, you can check one out at the [Tomas Rivera](https://library.ucr.edu/libraries/tomas-rivera-library) or [Orbach Science Library](https://library.ucr.edu/libraries/orbach-science-library). Go to the library circulation desk for more information.
